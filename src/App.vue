@@ -1,11 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <div id="nav"></div>
     <router-view />
   </div>
 </template>
 
-<style></style>
+<script>
+  export default {
+    name: 'robey-app',
+  };
+</script>
+
+<style lang="scss">
+  @import './sass/reset';
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
