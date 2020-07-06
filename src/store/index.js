@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { patterns, colors } from '../mock/data/variables';
 
 Vue.use(Vuex);
 
@@ -7,6 +8,8 @@ export default new Vuex.Store({
   state: {
     activePattern: '',
     activeColor: '',
+    colors,
+    patterns,
   },
   mutations: {
     setActiveColor(state, payload) {

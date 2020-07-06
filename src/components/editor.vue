@@ -74,7 +74,6 @@ import {
   ChevronUpIcon,
   CheckIcon
 } from "vue-feather-icons";
-import { patterns, colors } from "../mock/data/variables";
 
 export default {
   name: "editor",
@@ -84,18 +83,18 @@ export default {
     ChevronUpIcon,
     CheckIcon
   },
-  data() {
-    return {
-      patterns: patterns,
-      colors: colors
-    };
-  },
   computed: {
     activeColor() {
       return this.$store.state.activeColor;
     },
     activePattern() {
       return this.$store.state.activePattern;
+    },
+    patterns() {
+      return this.$store.state.patterns;
+    },
+    colors() {
+      return this.$store.state.colors;
     }
   },
   methods: {
