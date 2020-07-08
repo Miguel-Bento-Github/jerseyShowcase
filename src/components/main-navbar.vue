@@ -2,7 +2,7 @@
   <header class="header">
     <nav class="navbar">
       <router-link class="view" to="/">
-        <company-logo class="icon" />
+        <company-logo class="logo icon" />
       </router-link>
       <div class="views">
         <router-link class="view" to="/new">New</router-link>
@@ -40,77 +40,100 @@
 </template>
 
 <script>
-  import CompanyLogo from '@/assets/company-logo.svg';
-  import LanguageSelectIcon from '@/assets/language-select-icon.svg';
-  import { ShoppingCartIcon, SearchIcon, UserIcon } from 'vue-feather-icons';
+import CompanyLogo from "@/assets/company-logo.svg";
+import LanguageSelectIcon from "@/assets/language-select-icon.svg";
+import { ShoppingCartIcon, SearchIcon, UserIcon } from "vue-feather-icons";
 
-  export default {
-    name: 'main-navbar',
-    components: { CompanyLogo, SearchIcon, ShoppingCartIcon, UserIcon, LanguageSelectIcon },
-  };
+export default {
+  name: "main-navbar",
+  components: {
+    CompanyLogo,
+    SearchIcon,
+    ShoppingCartIcon,
+    UserIcon,
+    LanguageSelectIcon
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../sass/variables';
+@import "../sass/variables";
 
-  .icon,
-  .view {
-    cursor: pointer;
-    transition: filter 250ms cubic-bezier(0.23, 1, 0.32, 1);
+.icon,
+.view {
+  cursor: pointer;
+  transition: filter 250ms cubic-bezier(0.23, 1, 0.32, 1);
 
-    &:hover {
-      filter: drop-shadow(3px 3px 4px $black) drop-shadow(-2px -2px 4px lighten($grey, 20%));
-    }
+  &:hover {
+    filter: $drop-shadow-dark;
   }
+}
 
-  .navbar {
-    height: 83px;
-    padding: 0 48px;
-    display: grid;
-    align-items: center;
-    justify-content: space-between;
-    grid-template-columns: repeat(4, 1fr);
-    box-shadow: 0 2px 10px rgba($black, 0.1);
-    background: $grey;
-    color: $white;
+.navbar {
+  height: 83px;
+  padding: 0 48px;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: repeat(4, 1fr);
+  box-shadow: 0 2px 10px rgba($black, 0.1);
+  background: $grey;
+  color: $white;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-flow: row wrap;
   }
+}
 
-  .view {
+.logo {
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    top: 16px;
+    left: 8px;
+  }
+}
+
+.view {
+  margin-left: 32px;
+  color: $white;
+  text-decoration: none;
+  width: max-content;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 8px;
+  }
+}
+
+.pages,
+.app-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.app-control {
+  justify-self: flex-end;
+
+  &-icon {
     margin-left: 32px;
-    color: $white;
-    text-decoration: none;
-    width: max-content;
   }
+}
 
-  .pages,
-  .app-control {
+.language {
+  &-control {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .app-control {
     justify-self: flex-end;
-
-    &-icon {
-      margin-left: 32px;
-    }
   }
 
-  .language {
-    &-control {
-      display: flex;
-      align-items: center;
-      justify-self: flex-end;
-    }
-
-    &-select {
-      color: $white;
-      cursor: pointer;
-    }
-
-    &-icon {
-      margin-right: 8px;
-    }
+  &-select {
+    color: $white;
+    cursor: pointer;
   }
+
+  &-icon {
+    margin-right: 8px;
+  }
+}
 </style>

@@ -11,5 +11,5 @@ export const colors = {
 export const patterns = {
   plain: 'plain',
   pattern: 'split',
-  stripes: 'stripes',
+  striped: 'striped',
 };

@@ -4,9 +4,14 @@ $grey: #6d7278;
 $light-grey: #d8d8d8;
 
 // colors
-$yellow: yellow;
-$orange: orange;
-$red: red;
-$blue: blue;
-$purple: purple;
-$green: green;
+$yellow: #f9d542;
+$orange: #fa6400;
+$red: #e02020;
+$blue: #2024d0;
+$purple: #6236ff;
+$green: #6dd400;
+
+$drop-shadow-light: drop-shadow(2px 2px 2px $white)
+  drop-shadow(-2px -2px 2px darken($light-grey, 5%));
+
+$drop-shadow-dark: drop-shadow(3px 3px 4px $black) drop-shadow(-2px -2px 4px lighten($grey, 20%));
