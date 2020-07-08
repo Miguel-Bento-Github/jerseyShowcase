@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-    <main-navbar />
     <main class="main-content">
       <div class="showcase">
         <div class="showcase-container">
           <chevron-left-icon class="showcase-icon showcase-chevron-left" />
-          <img class="showcase-jersey" :src="activeJersey.src" alt="jersey" />
+          <img class="showcase-jersey" :src="activeJerseyAsset" alt="jersey" />
           <chevron-right-icon class="showcase-icon showcase-chevron-right" />
         </div>
         <div class="details"></div>
@@ -17,8 +16,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import MainNavbar from "@/components/main-navbar";
 import Editor from "@/components/editor";
 
 // Recommended library to handle feather icons
@@ -31,15 +28,17 @@ import {
 export default {
   name: "Home",
   components: {
-    MainNavbar,
     ChevronRightIcon,
     ChevronLeftIcon,
     ShareIcon,
     Editor
   },
   computed: {
-    activeJersey() {
-      return this.$store.getters.filteredActiveJersey;
+    activeJerseyAsset() {
+      // Optional chaining is an ES2020 feature,
+      // for more information please follow
+      // https://v8.dev/features/optional-chaining
+      return this.$store.getters.filteredActiveJersey?.src;
     }
   }
 };

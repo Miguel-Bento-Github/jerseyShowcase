@@ -12,10 +12,15 @@
     <div class="base">
       <div class="base-header">
         <h2 class="title">Base</h2>
-        <chevron-up-icon class="chevron" />
+        <chevron-up-icon
+          class="chevron"
+          :class="{ 'chevron-rotate': !showBase }"
+          @click="showBase = !showBase"
+        />
       </div>
-      <patterns @select-pattern="selectPattern" />
-      <div class="colors-section">
+
+      <div v-show="showBase">
+        <patterns @select-pattern="selectPattern" />
         <color-group
           :activeColor="activePrimaryColor"
           @select-color="selectPrimaryColor"
@@ -49,6 +54,11 @@ export default {
     ChevronLeftIcon,
     ChevronRightIcon,
     ChevronUpIcon
+  },
+  data() {
+    return {
+      showBase: true
+    };
   },
   methods: {
     selectPrimaryColor(color) {
@@ -90,7 +100,13 @@ export default {
 }
 
 .chevron {
+  transform: rotate(-360deg);
   stroke: $grey;
+  transition: transform 450ms 50ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+  &-rotate {
+    transform: rotate(180deg);
+  }
 }
 
 .burger {

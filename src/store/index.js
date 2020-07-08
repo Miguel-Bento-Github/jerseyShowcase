@@ -54,9 +54,6 @@ export default new Vuex.Store({
         return multiColorJerseys[0];
       }
 
-      if (!singleColorJerseys[0] || !multiColorJerseys[0]) {
-        throw new Error('Failed to load a jersey. Asset is probably missing');
-      }
       // currently there's no logic for the split jerseys as there are none, should be one of the next steps.
     },
   },

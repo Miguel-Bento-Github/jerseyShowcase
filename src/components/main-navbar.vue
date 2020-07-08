@@ -59,16 +59,6 @@ export default {
 <style lang="scss" scoped>
 @import "../sass/variables";
 
-.icon,
-.view {
-  cursor: pointer;
-  transition: filter 250ms cubic-bezier(0.23, 1, 0.32, 1);
-
-  &:hover {
-    filter: $drop-shadow-dark;
-  }
-}
-
 .navbar {
   height: 83px;
   padding: 0 48px;
@@ -91,6 +81,16 @@ export default {
     position: absolute;
     top: 16px;
     left: 8px;
+  }
+}
+
+.icon,
+.view {
+  cursor: pointer;
+  transition: filter 250ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  &:hover {
+    filter: $drop-shadow-dark;
   }
 }
 
